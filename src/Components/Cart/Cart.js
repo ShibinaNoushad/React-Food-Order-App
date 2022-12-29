@@ -8,17 +8,25 @@ const Cart = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCntxt.items.map((item) => (
-        <li>{item.name}</li>
+        <li>
+          Name:{item.name} price:{item.price} Quantity:{item.quantity}
+        </li>
       ))}
     </ul>
   );
+  let total = 0;
+   cartCntxt.items.forEach((item) => {
+    total = total + Number(item.quantity) * Number(item.price);
+    console.log(total);
+  });
+
 
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>35.62</span>
+        <span>{total}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={props.onClose}>
