@@ -6,11 +6,15 @@ import CartContext from "../../Store/CartContext";
 
 const HeaderCartButton = (props) => {
   console.log("header button");
-  let quantity = 0;
+  // const [quantity,updateQuantity]=
   const cartCntxt = useContext(CartContext);
+  let quantity = 0;
+
   cartCntxt.items.forEach((item) => {
     quantity = quantity + Number(item.quantity);
+    console.log("check quan", quantity);
   });
+
   return (
     <button className={classes.button} onClick={props.onClick}>
       <span className={classes.icon}>
