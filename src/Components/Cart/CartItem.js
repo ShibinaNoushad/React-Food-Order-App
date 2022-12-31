@@ -13,6 +13,7 @@ const CartItem = (props) => {
   };
   const addByOne = (e) => {
     e.preventDefault();
+    // cartcntx.addItemByOne(props.id)
     cartcntx.addItem({id:props.id,quantity:1})
   };
 
