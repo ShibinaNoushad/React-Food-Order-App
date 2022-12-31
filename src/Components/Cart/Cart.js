@@ -14,7 +14,7 @@ const Cart = (props) => {
         </li>
       ))} */}
       {cartCntxt.items.map((item)=>(
-        <CartItem key={item.id} name={item.name} price={item.price} amount={item.quantity}></CartItem>
+        <CartItem key={item.id} name={item.name} price={item.price} amount={item.quantity} id={item.id}></CartItem>
 
       ))}
     </ul>
