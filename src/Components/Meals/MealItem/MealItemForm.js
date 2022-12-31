@@ -5,7 +5,7 @@ import Input from "../../UI/Input";
 import CartContext from "../../../Store/CartContext";
 const MealItemForm = (props) => {
   const cartcntx = useContext(CartContext);
-  console.log("meal item form initializd 1", cartcntx);
+  // console.log("meal item form initializd 1", cartcntx);
   const amountInputRef = useRef();
 
   const addItemToCart = (e) => {
@@ -19,7 +19,7 @@ const MealItemForm = (props) => {
 
   return (
     <form className={classes.form}>
-      {console.log("inside render", cartcntx.items)}
+      {/* {console.log("inside render", cartcntx.items)} */}
       <Input
         ref={amountInputRef}
         label="Amount"

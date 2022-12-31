@@ -87,12 +87,12 @@ const CartProvider = (props) => {
     // addItemByOne: addItemToCartByOne,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
-    message: "click here",
+    
   };
 
   return (
     <CartContext.Provider value={cartContext}>
-      {console.log("inside cart provider", cartContext)}
+      {/* {console.log("inside cart provider", cartContext)} */}
 
       {props.children}
     </CartContext.Provider>

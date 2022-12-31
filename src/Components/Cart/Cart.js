@@ -22,7 +22,7 @@ const Cart = (props) => {
   let total = 0;
   cartCntxt.items.forEach((item) => {
     total = total + Number(item.quantity) * Number(item.price);
-    console.log(total);
+    // console.log(total);
   });
 
   return (
