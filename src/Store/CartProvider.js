@@ -1,14 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import CartContext from "./CartContext";
 
 const CartProvider = (props) => {
   const [item, setUpdateItem] = useState([]);
   const addItemToCartHandler = (newItem) => {
-    setUpdateItem((prev) => {
-      return [...prev, newItem];
-    });
-    console.log("inside additem handler", cartContext);
+    const existingCartItemIndex = cartContext.items.findIndex(
+      (item) => item.id === newItem.id
+    );
+    const existingCartItem = cartContext.items[existingCartItemIndex];
+    let updatedItems;
+
+    if (existingCartItem) {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity + newItem.quantity,
+      };
+      setUpdateItem((prev) => {
+        updatedItems = [...prev];
+        updatedItems[existingCartItemIndex] = updatedItem;
+        return updatedItems;
+      });
+    } else {
+      setUpdateItem((prev) => {
+        // return prev.concat(newItem);
+        return [...prev, newItem];
+      });
+    }
   };
   const removeItemFromCartHandler = (id) => {};
   const cartContext = {
